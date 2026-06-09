@@ -1,0 +1,78 @@
+<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Fonts */
+    --chat--font-family: 'Titillium Web', sans-serif;
+
+    /* Primary layout elements (Header top bar background) */
+    --chat--color-dark: #44868B;
+
+    /* Accent & Action colors (Toggle button, send arrow, links) */
+    --chat--color--primary: #23AEB8;
+    --chat--color--primary-shade-50: #1D919A;
+    --chat--color--primary--shade-100: #17757C;
+    --chat--color--secondary: #23AEB8;
+
+    /* Message backgrounds */
+    --chat--body--background: #F4F6F8;
+    --chat--message--bot--background: #FFFFFF;
+    --chat--message--bot--color: #101330;
+    
+    /* Smooth rendering */
+    --chat--border-radius: 6px;
+  }
+
+  /* Force font styling on nested structures */
+  .n8n-chat, .n8n-chat * {
+    font-family: 'Titillium Web', sans-serif !important;
+  }
+
+  /* Customize the markdown links explicitly inside the chat bubble */
+  .n8n-chat a {
+    color: #23AEB8 !important;
+    text-decoration: underline;
+  }
+</style>
+
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    // Your verified ad4mat webhook URL
+    webhookUrl: 'https://n8n.ad4mat.net/webhook/dc436b34-ae3b-4b04-840a-ad06df4fe1db/chat',
+    
+    // Multi-line Markdown template block for the starting conversation
+    initialMessages: [
+      `Hi there! Let's get your monetized tracking links ready. 🚀
+
+To start, please provide the following details:
+
+1️⃣ **Target URL:**
+The website link you want to convert.
+
+2️⃣ **Site ID:**
+Your numeric ID. You can find it right here: [publisher.advanced-store.com/sites](https://publisher.advanced-store.com/sites)
+
+3️⃣ **Sub-ID (Optional):**
+A name for your campaign to track where your clicks come from.
+
+**Example – just type it like this:**
+\`https://example.com, Site ID: 12345, Campaign: summer_sale\``
+    ],
+
+    // UI Translation & Your Finalized Header Text
+    i18n: {
+      en: {
+        title: 'Tracking Link Assistant 🤖',
+        subtitle: 'Monetize your links on the fly!',
+        inputPlaceholder: 'Paste your URL, Site ID, and Sub-ID here...',
+        getStarted: 'New Conversation'
+      }
+    }
+  });
+</script>
